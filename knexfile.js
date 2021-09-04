@@ -32,19 +32,14 @@ module.exports = {
 
   production: {
     
-    client: 'pg',
-    // The next line is where the application will read that environment variable to connect to the database
-    host : process.env.DB_HOST,
-    user : process.env.DB_USERNAME,
-    password : process.env.BR_PASSWORD,
-    database : 'siteoxe',
-   
+    client: 'sqlite3',
+    connection: {
+      filename: './dev.sqlite3'
+    },
+    " useNullAsDefault " : true ,
     migrations: {
-        directory: __dirname + '/src/database/migrations',
-    },
-    seeds: {
-        directory: __dirname + '/db/seeds/production',
-    },
+      directory: __dirname + '/src/database/migrations',
+  },
     
 }
 
