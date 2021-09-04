@@ -20,20 +20,14 @@ module.exports = {
   },
 
   staging: {
-    client: 'postgresql',
+    client: 'sqlite3',
     connection: {
-      host:process.env.DB_HOST,
-     user : process.env.DB_USERNAME,
-    password:process.env.DB_PASSWORD,
-    database:process.env.DB_DATABASE
+      filename: './dev.sqlite3'
     },
-    pool: {
-      min: 2,
-      max: 10
-    },
+    " useNullAsDefault " : true ,
     migrations: {
       directory: __dirname + '/src/database/migrations',
-    }
+  },
   },
 
   production: {
