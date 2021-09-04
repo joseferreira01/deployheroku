@@ -1,0 +1,137 @@
+{
+    "openapi": "3.0.0",
+    "info":{
+        "title": "Contacts",
+        "description":"Esta é uma aplicação de API REST feita com Express.",
+        "version": "1.0.0"
+    },
+    "basePath":"/",
+    "paths":{
+        "/users":{
+            "get":{
+                "parameters":[{
+                    "in": "query",
+                    "name":"page",
+                    "type":"integer",
+                    "description": "paginacaum",
+                    "required": true
+                }],
+                "responses":{
+                    "200":{
+                        "description":"ok"
+                    }
+                }
+            }
+        },
+
+        "/users/":{
+            "post":{
+                "requestBody":{
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "type":"object",
+                                "properties":{
+                                    "email":{
+                                        "type":"string"
+                                    }, 
+                                    "password":{
+                                        "type":"string"
+                                    },
+                                    "name":{
+                                        "type":"string"
+                                    }
+                                },
+                                "example":{
+                                    "email":"s2@gmail.com",
+                                    "password":"s2s2s2s2s2s2",
+                                    "name":"s2pw2"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"ok"
+                    },
+                    "201":{
+                        "description":"err"
+                    }
+                }
+            }
+        },
+
+        "/users/login":{
+            "post":{
+                "requestBody":{
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "type":"object",
+                                "properties":{
+                                    "email":{
+                                        "type":"string"
+                                    }, 
+                                    "password":{
+                                        "type":"string"
+                                    }
+                                },
+                                "example":{
+                                    "email":"s2@gmail.com",
+                                    "password":"s2s2s2s2s2s2"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"ok"
+                    },
+                    "403":{
+                        "description": "Para fazer login você precisar habilitar sua conta por favor verifique seu e-mail!"
+                    },
+                    "400":{
+                        "description": "email/senha invalidos"
+                    }
+                }
+            }
+        },
+        "/users/{id}":{
+            "get":{
+                "parameters":[{
+                    "in": "path",
+                    "name":"id",
+                    "description": "id do usuario salvo no banco",
+                    "required": true,
+                    "type": "integer"
+                }],
+                "responses":{
+                    "200":{
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/users/active/{token}":{
+            "get":{
+                "parameters":[{
+                    "in": "path",
+                    "name":"token",
+                    "description": "token de autenticacaum",
+                    "required": true,
+                    "type": "string"
+                }],
+                "responses":{
+                    "201":{
+                        "description": "OK"
+                    },
+                    "400":{
+                        "description": "err"
+                    }
+                }
+            }
+        }
+    }
+}
