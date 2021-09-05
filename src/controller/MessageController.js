@@ -10,7 +10,7 @@ module.exports ={
             to: `${name} <${email}>`,
             subject: 'Confirmação do cadastro',
             html: `<p>Para confirmar seu cadastro clik
-            <a href="http://localhost:3333/users/active/${token}">aqui</a></p>`
+            <a href="${process.env.MAIL_URL}users/active/${token}">aqui</a></p>`
           });
           
         return

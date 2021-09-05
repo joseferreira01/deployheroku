@@ -13,8 +13,10 @@ module.exports = {
                 .where({
                     email: email,
                 }).select('id', 'password','status','email','name');
+                console.log('entrei login',user)
 
             if (user.length === 0) {
+              console.log('entrei login 1',)
                 throw new Error('Incorrect login')
             }
             

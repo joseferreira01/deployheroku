@@ -30,7 +30,7 @@ module.exports = {
   },
   },
 
-  production: {
+  production: { 
     
     client: 'sqlite3',
     connection: {
